@@ -13,7 +13,7 @@ public class Test : MonoBehaviour
     static void WriteOUT()
     {
         TextAsset IN = Resources.Load<TextAsset>("IN");
-        var json = Geo.Serialise(Geo.GetGeoData(IN.text).features.Select(value => new OutData(value)).ToList());
+        var json = Geo.Serialise(new OutDataArray( Geo.GetGeoData(IN.text).features.Select(value => new OutData(value)).ToArray()));
         string path = "Assets/Resources/OUT.txt";
         StreamWriter writer = new StreamWriter(path, false);
         writer.Write(json);

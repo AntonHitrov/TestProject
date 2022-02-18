@@ -8,5 +8,5 @@ public static class Geo
 {
     public static Root GetGeoData(string value) => JsonConvert.DeserializeObject<Root>(value);
 
-    public static string Serialise(object data) => JsonConvert.SerializeObject(data);
+    public static string Serialise(object data) => JsonUtility.ToJson(data);// JsonConvert.SerializeObject(data);
 }
